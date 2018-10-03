@@ -34,7 +34,7 @@ class AlbumController extends AbstractController
         $data['album'] = ['title' => $album->getName(), 'token' => $album->getToken(),'cover' => $album->getCover(), 'description' => $album->getDescription(), 'artists' => $artistArr, 'songs' => $songArr];
         $response->setContent(json_encode($data));
         $response->headers->set('Content-Type','application/json');
-        $response->setStatusCode(StatusCode::NO_CONTENT);
+        $response->setStatusCode(StatusCode::OK);
         return $response;
     }
 }
