@@ -2,6 +2,9 @@
     "beberlei/assert": {
         "version": "v3.0.0"
     },
+    "composer/ca-bundle": {
+        "version": "1.1.2"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -113,6 +116,24 @@
     "psr/simple-cache": {
         "version": "1.0.1"
     },
+    "sensio/framework-extra-bundle": {
+        "version": "5.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.2",
+            "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
+        }
+    },
+    "sensiolabs/security-checker": {
+        "version": "4.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.0",
+            "ref": "421933bf8f0e75546ac8e00cb3eb12904fa2ac1a"
+        }
+    },
     "shrikeh/teapot": {
         "version": "v2.3.1"
     },
@@ -208,6 +229,9 @@
             "version": "4.0",
             "ref": "cda8b550123383d25827705d05a42acf6819fe4e"
         }
+    },
+    "symfony/serializer": {
+        "version": "v4.1.5"
     },
     "symfony/stopwatch": {
         "version": "v4.1.3"
