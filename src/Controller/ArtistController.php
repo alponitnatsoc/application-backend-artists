@@ -43,7 +43,7 @@ class ArtistController extends AbstractController
         if(empty($artist)){
             $response->setContent(json_encode(['error' => 'There\'s not an artist with token'.$token]));
             $response->headers->set('Content-Type','application/json');
-            $response->setStatusCode(StatusCode::NO_CONTENT);
+            $response->setStatusCode(StatusCode::NOT_FOUND);
             return $response;
         }
         $albumArr = [];

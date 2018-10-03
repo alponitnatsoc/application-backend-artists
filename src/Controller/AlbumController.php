@@ -20,7 +20,7 @@ class AlbumController extends AbstractController
         if(empty($album)){
             $response->setContent(json_encode(['error' => 'There\'s not an album with token'.$token]));
             $response->headers->set('Content-Type','application/json');
-            $response->setStatusCode(StatusCode::NO_CONTENT);
+            $response->setStatusCode(StatusCode::NOT_FOUND);
             return $response;
         }
         $artistArr =[];
