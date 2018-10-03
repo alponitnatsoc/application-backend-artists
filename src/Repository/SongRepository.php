@@ -31,7 +31,7 @@ class SongRepository extends ServiceEntityRepository
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
-            ;
+        ;
     }
 
     public function findOneBySomeField($value): ?Song
@@ -41,6 +41,6 @@ class SongRepository extends ServiceEntityRepository
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
-            ;
+        ;
     }
 }

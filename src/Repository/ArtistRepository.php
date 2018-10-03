@@ -31,7 +31,7 @@ class ArtistRepository extends ServiceEntityRepository
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
-            ;
+        ;
     }
 
     public function findOneBySomeField($value): ?Artist
@@ -41,6 +41,6 @@ class ArtistRepository extends ServiceEntityRepository
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
-            ;
+        ;
     }
 }

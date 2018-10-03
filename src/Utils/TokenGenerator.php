@@ -2,9 +2,9 @@
 
 namespace App\Utils;
 
-use RandomLib\Factory;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Id\AbstractIdGenerator;
+use RandomLib\Factory;
 
 class TokenGenerator extends AbstractIdGenerator
 {
@@ -30,10 +30,8 @@ class TokenGenerator extends AbstractIdGenerator
         }
     }
 
-    public static function generateToken(int $length = self::LENGTH, string $vocab = self::VOCAB): string
-    {
+    public static function generateToken(int $length = self::LENGTH, string $vocab = self::VOCAB): string {
         $generator = (new Factory())->getMediumStrengthGenerator();
-
         return $generator->generateString($length, $vocab);
     }
 }

@@ -17,6 +17,12 @@ class AlbumController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $albumsRepo = $em->getRepository("App:Album");
         $album = $albumsRepo->find($token);
+        if(empty($album)){
+            $response->setContent(json_encode(['error' => 'There\'s not an album with token'.$token]));
+            $response->headers->set('Content-Type','application/json');
+            $response->setStatusCode(StatusCode::NO_CONTENT);
+            return $response;
+        }
         $artistArr =[];
         $songArr = [];
         foreach ($album->getArtists() as $akey => $artist){
@@ -27,9 +33,8 @@ class AlbumController extends AbstractController
         }
         $data['album'] = ['title' => $album->getName(), 'token' => $album->getToken(),'cover' => $album->getCover(), 'description' => $album->getDescription(), 'artists' => $artistArr, 'songs' => $songArr];
         $response->setContent(json_encode($data));
-        $response->setContent(json_encode());
         $response->headers->set('Content-Type','application/json');
-        $response->setStatusCode(StatusCode::OK);
+        $response->setStatusCode(StatusCode::NO_CONTENT);
         return $response;
     }
 }

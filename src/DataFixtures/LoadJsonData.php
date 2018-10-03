@@ -37,10 +37,11 @@ class LoadJsonData extends Fixture
                             $hasLength = ($song['length'])? $songObj->setLength($song['length']) : '';
                             $manager->persist($songObj);
                             $albumObj->addSong($songObj);
+                            $songObj->addAlbum($albumObj);
                         }
                     }
-                    $manager->persist($albumObj);
                     $artistObj->addAlbum($albumObj);
+                    $manager->persist($albumObj);
                 }
             }
             $manager->persist($artistObj);
