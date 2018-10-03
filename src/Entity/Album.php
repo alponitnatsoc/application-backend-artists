@@ -52,4 +52,103 @@ class Album
      * )
      */
     private $songs;
+
+    public function __construct()
+    {
+        $this->artists = new ArrayCollection();
+        $this->songs = new ArrayCollection();
+    }
+
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getCover(): ?string
+    {
+        return $this->cover;
+    }
+
+    public function setCover(?string $cover): self
+    {
+        $this->cover = $cover;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Artist[]
+     */
+    public function getArtists(): Collection
+    {
+        return $this->artists;
+    }
+
+    public function addArtist(Artist $artist): self
+    {
+        if (!$this->artists->contains($artist)) {
+            $this->artists[] = $artist;
+        }
+
+        return $this;
+    }
+
+    public function removeArtist(Artist $artist): self
+    {
+        if ($this->artists->contains($artist)) {
+            $this->artists->removeElement($artist);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Song[]
+     */
+    public function getSongs(): Collection
+    {
+        return $this->songs;
+    }
+
+    public function addSong(Song $song): self
+    {
+        if (!$this->songs->contains($song)) {
+            $this->songs[] = $song;
+        }
+
+        return $this;
+    }
+
+    public function removeSong(Song $song): self
+    {
+        if ($this->songs->contains($song)) {
+            $this->songs->removeElement($song);
+        }
+
+        return $this;
+    }
 }

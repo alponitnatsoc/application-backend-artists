@@ -30,4 +30,53 @@ class Artist
      */
     private $albums;
 
+    public function __construct()
+    {
+        $this->albums = new ArrayCollection();
+    }
+
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Album[]
+     */
+    public function getAlbums(): Collection
+    {
+        return $this->albums;
+    }
+
+    public function addAlbum(Album $album): self
+    {
+        if (!$this->albums->contains($album)) {
+            $this->albums[] = $album;
+            $album->addArtist($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAlbum(Album $album): self
+    {
+        if ($this->albums->contains($album)) {
+            $this->albums->removeElement($album);
+            $album->removeArtist($this);
+        }
+
+        return $this;
+    }
 }
